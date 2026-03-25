@@ -13,8 +13,10 @@
             <div class="font-bold text-2xl text-orange-600">Ambrosia</div>
             <div class="hidden md:flex space-x-6">
                 <a href="#home" class="hover:text-orange-500 font-semibold transition">Home</a>
+                <a href="#gallery" class="hover:text-orange-500 font-semibold transition">Gallery</a>
                 <a href="#menu" class="hover:text-orange-500 font-semibold transition">Menu</a>
                 <a href="#reservation" class="hover:text-orange-500 font-semibold transition">Book Table</a>
+                <a href="#location" class="hover:text-orange-500 font-semibold transition">Location</a>
             </div>
         </div>
     </nav>
@@ -28,7 +30,27 @@
         </div>
     </header>
 
-    <section id="menu" class="py-20 px-6 max-w-5xl mx-auto">
+    <section id="gallery" class="py-16 bg-white px-6">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-900 border-b-2 border-orange-500 inline-block pb-2">Ambience & Flavors</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="col-span-2 row-span-2 overflow-hidden rounded-xl shadow-md">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&q=80&w=800" alt="Restaurant Ambience" class="w-full h-full object-cover hover:scale-110 transition duration-500">
+                </div>
+                <div class="overflow-hidden rounded-xl shadow-md h-48">
+                    <img src="https://images.unsplash.com/photo-1606491956689-2ea866880c84?auto=format&fit=crop&q=80&w=400" alt="Dish detail" class="w-full h-full object-cover hover:scale-110 transition duration-500">
+                </div>
+                <div class="overflow-hidden rounded-xl shadow-md h-48">
+                    <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&q=80&w=400" alt="Chef cooking" class="w-full h-full object-cover hover:scale-110 transition duration-500">
+                </div>
+                <div class="col-span-2 overflow-hidden rounded-xl shadow-md h-48">
+                    <img src="https://images.unsplash.com/photo-1544148103-0773bf10d330?auto=format&fit=crop&q=80&w=800" alt="Plated food" class="w-full h-full object-cover hover:scale-110 transition duration-500">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="menu" class="py-20 px-6 max-w-5xl mx-auto bg-gray-50">
         <h2 class="text-4xl font-bold text-center mb-12 text-gray-900 border-b-2 border-orange-500 inline-block pb-2">Digital Menu</h2>
         
         <h3 class="text-2xl font-bold text-gray-800 mb-6 mt-8">Starters & Snacks</h3>
@@ -38,7 +60,7 @@
                     <h4 class="text-xl font-bold">Special Chilli Paneer</h4>
                     <p class="text-gray-500 text-sm mt-1">Crispy paneer tossed in spicy soy-garlic sauce.</p>
                 </div>
-                <div class="text-right">
+                <div class="text-right flex flex-col items-end">
                     <span class="block text-xl font-bold text-gray-900 mb-2">₹280</span>
                     <button onclick="addToCart('Special Chilli Paneer', 280)" class="bg-orange-100 text-orange-600 px-4 py-1 rounded-md text-sm font-bold hover:bg-orange-200 transition">+ Add</button>
                 </div>
@@ -48,7 +70,7 @@
                     <h4 class="text-xl font-bold">Crispy Honey Chilli Potato</h4>
                     <p class="text-gray-500 text-sm mt-1">Fried potato fingers glazed with honey and sesame.</p>
                 </div>
-                <div class="text-right">
+                <div class="text-right flex flex-col items-end">
                     <span class="block text-xl font-bold text-gray-900 mb-2">₹190</span>
                     <button onclick="addToCart('Honey Chilli Potato', 190)" class="bg-orange-100 text-orange-600 px-4 py-1 rounded-md text-sm font-bold hover:bg-orange-200 transition">+ Add</button>
                 </div>
@@ -62,7 +84,7 @@
                     <h4 class="text-xl font-bold">Authentic Baati Chokha</h4>
                     <p class="text-gray-500 text-sm mt-1">Served with rich dal, roasted chokha, and chutney.</p>
                 </div>
-                <div class="text-right">
+                <div class="text-right flex flex-col items-end">
                     <span class="block text-xl font-bold text-gray-900 mb-2">₹150</span>
                     <button onclick="addToCart('Baati Chokha', 150)" class="bg-orange-100 text-orange-600 px-4 py-1 rounded-md text-sm font-bold hover:bg-orange-200 transition">+ Add</button>
                 </div>
@@ -72,7 +94,7 @@
                     <h4 class="text-xl font-bold">Paneer Butter Masala</h4>
                     <p class="text-gray-500 text-sm mt-1">Soft paneer cubes in a rich, creamy tomato gravy.</p>
                 </div>
-                <div class="text-right">
+                <div class="text-right flex flex-col items-end">
                     <span class="block text-xl font-bold text-gray-900 mb-2">₹320</span>
                     <button onclick="addToCart('Paneer Butter Masala', 320)" class="bg-orange-100 text-orange-600 px-4 py-1 rounded-md text-sm font-bold hover:bg-orange-200 transition">+ Add</button>
                 </div>
@@ -80,15 +102,17 @@
         </div>
     </section>
 
-    <section id="reservation" class="py-20 px-6 max-w-4xl mx-auto">
-        <div class="bg-white rounded-2xl shadow-xl overflow-hidden md:flex">
+    <section id="reservation" class="py-20 px-6 max-w-4xl mx-auto bg-white">
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden md:flex border border-gray-100">
             <div class="md:w-1/2 bg-cover bg-center h-64 md:h-auto" style="background-image: url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&q=80&w=800');"></div>
             <div class="md:w-1/2 p-8 md:p-12">
                 <h2 class="text-3xl font-bold text-gray-900 mb-2">Book a Table</h2>
                 <p class="text-gray-500 mb-8">Reserve your spot for a perfect evening.</p>
+                
                 <form action="https://api.web3forms.com/submit" method="POST" class="space-y-4">
                     <input type="hidden" name="access_key" value="62467d9e-6527-4e41-8427-5c21a6d40def">
                     <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
                     <div><input type="text" name="name" placeholder="Your Name" required class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:border-orange-500 transition"></div>
                     <div><input type="tel" name="phone" placeholder="Phone Number" required class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:border-orange-500 transition"></div>
                     <div class="flex space-x-4">
@@ -100,6 +124,35 @@
             </div>
         </div>
     </section>
+
+    <section id="location" class="py-16 bg-gray-100">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold mb-4 text-gray-900 border-b-2 border-orange-500 inline-block pb-2">Find Us in Chitaipur</h2>
+            <p class="text-gray-600 mb-8 text-lg">Near Hanuman Temple, Indira Nagar Colony, Gokul Nagar, Varanasi</p>
+            
+            <div class="w-full h-96 rounded-xl overflow-hidden shadow-xl border-4 border-white">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3607.747127926955!2d82.9646649759714!3d25.277851877659556!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398e3241698f0635%3A0x25429be003bbaz4a!2sAmbrosia%20Restaurant!5e0!3m2!1sen!2sin!4v1711400000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            
+            <div class="mt-8">
+                <a href="https://maps.app.goo.gl/YourShareLinkHere" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full transition duration-300 shadow-md inline-flex items-center">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    Open in Google Maps App
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-black text-gray-400 py-8 text-center text-sm">
+        <div class="max-w-4xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
+            <p>© 2026 Ambrosia Restaurant. All rights reserved.</p>
+            <div class="mt-4 md:mt-0 space-x-4">
+                <a href="#" class="hover:text-white transition">Instagram</a>
+                <a href="#" class="hover:text-white transition">Facebook</a>
+            </div>
+        </div>
+        <p class="mt-6 text-gray-600">Built with ❤️ for local businesses.</p>
+    </footer>
 
     <button id="cartBtn" onclick="toggleCart()" class="hidden fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-2xl transition duration-300 z-50 flex items-center">
         <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
@@ -128,27 +181,20 @@
     </div>
 
     <script>
-        let cart = []; // This empty array holds the items
+        let cart = []; 
         
-        // Function 1: Add item to the array
         function addToCart(itemName, itemPrice) {
             cart.push({ name: itemName, price: itemPrice });
             updateCartUI();
-            
-            // Make the floating cart button visible
             document.getElementById('cartBtn').classList.remove('hidden');
         }
 
-        // Function 2: Update the visuals (Totals and Lists)
         function updateCartUI() {
-            // Update the number on the floating button
             document.getElementById('cartCount').innerText = cart.length;
-            
             let cartItemsDiv = document.getElementById('cartItems');
-            cartItemsDiv.innerHTML = ''; // Clear old list
+            cartItemsDiv.innerHTML = ''; 
             let total = 0;
 
-            // Loop through the array to calculate total and build the list
             cart.forEach((item, index) => {
                 total += item.price;
                 cartItemsDiv.innerHTML += `
@@ -161,7 +207,6 @@
             document.getElementById('cartTotal').innerText = `₹${total}`;
         }
 
-        // Function 3: Open/Close the pop-up modal
         function toggleCart() {
             let modal = document.getElementById('cartModal');
             if (modal.classList.contains('hidden')) {
@@ -171,7 +216,6 @@
             }
         }
 
-        // Function 4: Format the text and open WhatsApp
         function sendOrderToWhatsApp() {
             if (cart.length === 0) return;
 
@@ -186,10 +230,7 @@
             message += `\n*Total Amount: ₹${total}*`;
             message += `\n\nPlease let me know the preparation time!`;
 
-            // Your specific phone number is here
             let whatsappNumber = "916388735805"; 
-            
-            // encodeURIComponent translates spaces into "%20" so URLs don't break
             let whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
             
             window.open(whatsappURL, '_blank');
