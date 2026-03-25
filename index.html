@@ -15,7 +15,6 @@
                 <a href="#home" class="hover:text-orange-500 font-semibold transition">Home</a>
                 <a href="#menu" class="hover:text-orange-500 font-semibold transition">Menu</a>
                 <a href="#reservation" class="hover:text-orange-500 font-semibold transition">Book Table</a>
-                <a href="#location" class="hover:text-orange-500 font-semibold transition">Location</a>
             </div>
         </div>
     </nav>
@@ -25,8 +24,7 @@
         <h1 class="text-5xl md:text-7xl text-white font-bold mb-4 tracking-wide">Ambrosia</h1>
         <p class="text-xl md:text-2xl text-gray-200 mb-8 font-light">The finest dining experience in Chitaipur.</p>
         <div class="flex space-x-4">
-            <a href="#menu" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-full transition duration-300 shadow-lg">Our Menu</a>
-            <a href="#reservation" class="bg-transparent border-2 border-white hover:bg-white hover:text-gray-900 text-white font-bold py-3 px-8 rounded-full transition duration-300 shadow-lg">Book a Table</a>
+            <a href="#menu" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-full transition duration-300 shadow-lg">Order Now</a>
         </div>
     </header>
 
@@ -38,16 +36,22 @@
             <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex justify-between items-center hover:shadow-md transition">
                 <div>
                     <h4 class="text-xl font-bold">Special Chilli Paneer</h4>
-                    <p class="text-gray-500 text-sm mt-1">Crispy paneer tossed in spicy soy-garlic sauce (Dry/Gravy).</p>
+                    <p class="text-gray-500 text-sm mt-1">Crispy paneer tossed in spicy soy-garlic sauce.</p>
                 </div>
-                <span class="text-xl font-bold text-orange-600">₹280</span>
+                <div class="text-right">
+                    <span class="block text-xl font-bold text-gray-900 mb-2">₹280</span>
+                    <button onclick="addToCart('Special Chilli Paneer', 280)" class="bg-orange-100 text-orange-600 px-4 py-1 rounded-md text-sm font-bold hover:bg-orange-200 transition">+ Add</button>
+                </div>
             </div>
             <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex justify-between items-center hover:shadow-md transition">
                 <div>
                     <h4 class="text-xl font-bold">Crispy Honey Chilli Potato</h4>
                     <p class="text-gray-500 text-sm mt-1">Fried potato fingers glazed with honey and sesame.</p>
                 </div>
-                <span class="text-xl font-bold text-orange-600">₹190</span>
+                <div class="text-right">
+                    <span class="block text-xl font-bold text-gray-900 mb-2">₹190</span>
+                    <button onclick="addToCart('Honey Chilli Potato', 190)" class="bg-orange-100 text-orange-600 px-4 py-1 rounded-md text-sm font-bold hover:bg-orange-200 transition">+ Add</button>
+                </div>
             </div>
         </div>
 
@@ -56,48 +60,24 @@
             <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex justify-between items-center hover:shadow-md transition">
                 <div>
                     <h4 class="text-xl font-bold">Authentic Baati Chokha</h4>
-                    <p class="text-gray-500 text-sm mt-1">Served with rich dal, roasted chokha, and spicy green chutney.</p>
+                    <p class="text-gray-500 text-sm mt-1">Served with rich dal, roasted chokha, and chutney.</p>
                 </div>
-                <span class="text-xl font-bold text-orange-600">₹150</span>
+                <div class="text-right">
+                    <span class="block text-xl font-bold text-gray-900 mb-2">₹150</span>
+                    <button onclick="addToCart('Baati Chokha', 150)" class="bg-orange-100 text-orange-600 px-4 py-1 rounded-md text-sm font-bold hover:bg-orange-200 transition">+ Add</button>
+                </div>
             </div>
             <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex justify-between items-center hover:shadow-md transition">
                 <div>
                     <h4 class="text-xl font-bold">Paneer Butter Masala</h4>
                     <p class="text-gray-500 text-sm mt-1">Soft paneer cubes in a rich, creamy tomato gravy.</p>
                 </div>
-                <span class="text-xl font-bold text-orange-600">₹320</span>
+                <div class="text-right">
+                    <span class="block text-xl font-bold text-gray-900 mb-2">₹320</span>
+                    <button onclick="addToCart('Paneer Butter Masala', 320)" class="bg-orange-100 text-orange-600 px-4 py-1 rounded-md text-sm font-bold hover:bg-orange-200 transition">+ Add</button>
+                </div>
             </div>
         </div>
-        
-        <h3 class="text-2xl font-bold text-gray-800 mb-6 mt-12">Beverages</h3>
-        <div class="grid md:grid-cols-2 gap-6">
-            <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex justify-between items-center hover:shadow-md transition">
-                <div>
-                    <h4 class="text-xl font-bold">Banarasi Cold Coffee</h4>
-                    <p class="text-gray-500 text-sm mt-1">Thick, creamy, and topped with vanilla ice cream.</p>
-                </div>
-                <span class="text-xl font-bold text-orange-600">₹90</span>
-            </div>
-            <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex justify-between items-center hover:shadow-md transition">
-                <div>
-                    <h4 class="text-xl font-bold">Malai Lassi</h4>
-                    <p class="text-gray-500 text-sm mt-1">Rich yogurt drink with a thick layer of fresh malai.</p>
-                </div>
-                <span class="text-xl font-bold text-orange-600">₹60</span>
-            </div>
-        </div>
-    </section>
-
-    <section class="bg-gray-900 text-white py-16 text-center px-4">
-        <h2 class="text-3xl font-bold mb-4">Ready to Order?</h2>
-        <p class="text-gray-400 mb-8 max-w-md mx-auto text-lg">Skip the waiting. Send us your order directly on WhatsApp for quick pickup or delivery.</p>
-        
-        <a href="https://wa.me/916388735805?text=Hi!%20I%20am%20looking%20at%20the%20digital%20menu%20for%20Ambrosia.%20I%20would%20like%20to%20order: " 
-           target="_blank" 
-           class="inline-flex items-center bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-10 rounded-full transition duration-300 shadow-lg text-lg">
-            <svg class="w-7 h-7 mr-3" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.347-.272.297-1.04 1.016-1.04 2.479 0 1.463 1.065 2.876 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-            Order on WhatsApp
-        </a>
     </section>
 
     <section id="reservation" class="py-20 px-6 max-w-4xl mx-auto">
@@ -106,50 +86,115 @@
             <div class="md:w-1/2 p-8 md:p-12">
                 <h2 class="text-3xl font-bold text-gray-900 mb-2">Book a Table</h2>
                 <p class="text-gray-500 mb-8">Reserve your spot for a perfect evening.</p>
-                
                 <form action="https://api.web3forms.com/submit" method="POST" class="space-y-4">
-                    
                     <input type="hidden" name="access_key" value="62467d9e-6527-4e41-8427-5c21a6d40def">
                     <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
-
-                    <div>
-                        <input type="text" name="name" placeholder="Your Name" required class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:border-orange-500 focus:bg-white transition">
-                    </div>
-                    <div>
-                        <input type="tel" name="phone" placeholder="Phone Number" required class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:border-orange-500 focus:bg-white transition">
-                    </div>
+                    <div><input type="text" name="name" placeholder="Your Name" required class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:border-orange-500 transition"></div>
+                    <div><input type="tel" name="phone" placeholder="Phone Number" required class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:border-orange-500 transition"></div>
                     <div class="flex space-x-4">
-                        <input type="date" name="date" required class="w-1/2 px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:border-orange-500 focus:bg-white transition">
-                        <input type="number" name="guests" placeholder="Guests" min="1" max="20" required class="w-1/2 px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:border-orange-500 focus:bg-white transition">
+                        <input type="date" name="date" required class="w-1/2 px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:border-orange-500 transition">
+                        <input type="number" name="guests" placeholder="Guests" min="1" max="20" required class="w-1/2 px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:border-orange-500 transition">
                     </div>
-                    <button type="submit" class="w-full bg-gray-900 hover:bg-black text-white font-bold py-3 rounded-lg transition duration-300 shadow-md">
-                        Request Reservation
-                    </button>
+                    <button type="submit" class="w-full bg-gray-900 hover:bg-black text-white font-bold py-3 rounded-lg transition duration-300 shadow-md">Request Reservation</button>
                 </form>
             </div>
         </div>
     </section>
 
-    <section id="location" class="py-16 bg-gray-100">
-        <div class="max-w-5xl mx-auto px-6 text-center">
-            <h2 class="text-3xl font-bold mb-8 text-gray-900">Find Us in Chitaipur</h2>
-            <div class="w-full h-96 rounded-xl overflow-hidden shadow-lg border border-gray-200">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3607.72918884693!2d82.98661431501116!3d25.279679183857865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398e321b0dc38e83%3A0xcb1b7454f2c00cc1!2sChitaipur%2C%20Varanasi%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin" 
-                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-        </div>
-    </section>
+    <button id="cartBtn" onclick="toggleCart()" class="hidden fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-2xl transition duration-300 z-50 flex items-center">
+        <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+        <span id="cartCount" class="font-bold text-lg">0</span>
+    </button>
 
-    <footer class="bg-black text-gray-400 py-8 text-center text-sm">
-        <div class="max-w-4xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
-            <p>© 2026 Ambrosia Restaurant. All rights reserved.</p>
-            <div class="mt-4 md:mt-0 space-x-4">
-                <a href="#" class="hover:text-white transition">Instagram</a>
-                <a href="#" class="hover:text-white transition">Facebook</a>
+    <div id="cartModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center px-4">
+        <div class="bg-white rounded-xl shadow-2xl w-full max-w-md overflow-hidden">
+            <div class="bg-gray-900 text-white px-6 py-4 flex justify-between items-center">
+                <h3 class="text-xl font-bold">Your Order</h3>
+                <button onclick="toggleCart()" class="text-gray-400 hover:text-white font-bold text-xl">&times;</button>
+            </div>
+            <div class="p-6">
+                <div id="cartItems" class="space-y-3 mb-6 max-h-60 overflow-y-auto">
+                    </div>
+                <div class="border-t border-gray-200 pt-4 mb-6 flex justify-between items-center">
+                    <span class="text-lg font-bold text-gray-600">Total Amount:</span>
+                    <span id="cartTotal" class="text-2xl font-bold text-orange-600">₹0</span>
+                </div>
+                <button onclick="sendOrderToWhatsApp()" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 rounded-lg transition duration-300 flex items-center justify-center text-lg shadow-md">
+                    <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.347-.272.297-1.04 1.016-1.04 2.479 0 1.463 1.065 2.876 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                    Send Order to Restaurant
+                </button>
             </div>
         </div>
-        <p class="mt-6 text-gray-600">Built with ❤️ for local businesses.</p>
-    </footer>
+    </div>
+
+    <script>
+        let cart = []; // This empty array holds the items
+        
+        // Function 1: Add item to the array
+        function addToCart(itemName, itemPrice) {
+            cart.push({ name: itemName, price: itemPrice });
+            updateCartUI();
+            
+            // Make the floating cart button visible
+            document.getElementById('cartBtn').classList.remove('hidden');
+        }
+
+        // Function 2: Update the visuals (Totals and Lists)
+        function updateCartUI() {
+            // Update the number on the floating button
+            document.getElementById('cartCount').innerText = cart.length;
+            
+            let cartItemsDiv = document.getElementById('cartItems');
+            cartItemsDiv.innerHTML = ''; // Clear old list
+            let total = 0;
+
+            // Loop through the array to calculate total and build the list
+            cart.forEach((item, index) => {
+                total += item.price;
+                cartItemsDiv.innerHTML += `
+                    <div class="flex justify-between items-center text-gray-700">
+                        <span>${item.name}</span>
+                        <span class="font-bold">₹${item.price}</span>
+                    </div>`;
+            });
+
+            document.getElementById('cartTotal').innerText = `₹${total}`;
+        }
+
+        // Function 3: Open/Close the pop-up modal
+        function toggleCart() {
+            let modal = document.getElementById('cartModal');
+            if (modal.classList.contains('hidden')) {
+                modal.classList.remove('hidden');
+            } else {
+                modal.classList.add('hidden');
+            }
+        }
+
+        // Function 4: Format the text and open WhatsApp
+        function sendOrderToWhatsApp() {
+            if (cart.length === 0) return;
+
+            let message = "Hi Ambrosia! 🍽️ I'd like to place an order:\n\n";
+            let total = 0;
+
+            cart.forEach(item => {
+                message += `▪️ 1x ${item.name} - ₹${item.price}\n`;
+                total += item.price;
+            });
+
+            message += `\n*Total Amount: ₹${total}*`;
+            message += `\n\nPlease let me know the preparation time!`;
+
+            // Your specific phone number is here
+            let whatsappNumber = "916388735805"; 
+            
+            // encodeURIComponent translates spaces into "%20" so URLs don't break
+            let whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+            
+            window.open(whatsappURL, '_blank');
+        }
+    </script>
 
 </body>
 </html>
