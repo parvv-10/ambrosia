@@ -160,7 +160,7 @@
         <div class="bg-white rounded-xl shadow-2xl w-full max-w-md overflow-hidden flex flex-col max-h-[90vh]">
             <div class="bg-gray-900 text-white px-6 py-4 flex justify-between items-center shrink-0">
                 <h3 class="text-xl font-bold">Your Order</h3>
-                <button onclick="toggleCart()" class="text-gray-400 hover:text-white font-bold text-2xl">&times;</button>
+                <button onclick="toggleCart()" class="text-gray-400 hover:text-white font-bold text-2xl">×</button>
             </div>
             
             <div class="p-6 overflow-y-auto grow">
@@ -173,8 +173,7 @@
                     </div>
                 </div>
 
-                <div id="cartItems" class="space-y-3 mb-6">
-                    </div>
+                <div id="cartItems" class="space-y-3 mb-6"></div>
                 
                 <div class="border-t border-gray-200 pt-4 mb-6 flex justify-between items-center">
                     <span class="text-lg font-bold text-gray-600">Total Amount:</span>
@@ -191,7 +190,15 @@
 
     <script>
         let cart = []; 
-        let currentOrderType = 'Takeaway'; // Default selection
+        let currentOrderType = 'Takeaway'; 
+
+        // Check if loaded from the Dine-In QR Code
+        window.addEventListener('load', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('order') === 'dinein') {
+                setOrderType('Dine-in'); 
+            }
+        });
         
         function addToCart(itemName, itemPrice) {
             cart.push({ name: itemName, price: itemPrice });
@@ -226,7 +233,6 @@
             }
         }
 
-        // Function to handle the Order Type selection visually
         function setOrderType(type) {
             currentOrderType = type;
             const buttons = ['takeaway', 'dine-in', 'delivery'];
@@ -254,7 +260,6 @@
 
             message += `\n*Total Amount: ₹${total}*`;
             
-            // Add custom instructions based on the order type
             if (currentOrderType === 'Delivery') {
                 message += `\n\n_Please reply to ask for my delivery address and location pin._`;
             } else if (currentOrderType === 'Dine-in') {
