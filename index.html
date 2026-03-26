@@ -6,7 +6,12 @@
     <title>Ambrosia Restaurant | Chitaipur, Varanasi</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans pt-16">
+<body class="bg-gray-50 text-gray-800 font-sans pt-16 relative overflow-x-hidden">
+
+    <div id="toast" class="fixed top-20 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-xl transform translate-x-full opacity-0 transition-all duration-300 z-50 flex items-center">
+        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+        <span id="toastMessage" class="font-bold text-sm">Item added!</span>
+    </div>
 
     <nav class="bg-white shadow-md fixed w-full z-50 top-0 left-0">
         <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
@@ -438,6 +443,7 @@
         let cart = []; 
         let currentOrderType = 'Takeaway'; 
 
+        // Auto-scroll and mode selection for QR Code
         window.addEventListener('load', function() {
             const urlParams = new URLSearchParams(window.location.search);
             if (urlParams.get('order') === 'dinein') {
@@ -449,18 +455,47 @@
             }
         });
         
-        function addToCart(itemName, itemPrice) {
-            cart.push({ name: itemName, price: itemPrice });
-            updateCartUI();
-            document.getElementById('cartBtn').classList.remove('hidden');
+        // Show the elegant success toast
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastMessage').innerText = message;
+            toast.classList.remove('translate-x-full', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-x-full', 'opacity-0');
+            }, 2500);
         }
 
-        // NEW FEATURE: Remove item from cart
-        function removeFromCart(index) {
-            cart.splice(index, 1); // Removes 1 item at the exact index
-            updateCartUI(); // Re-render the cart
+        function addToCart(itemName, itemPrice) {
+            // Check if item already exists in cart to manage quantity
+            let existingItem = cart.find(item => item.name === itemName);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({ name: itemName, price: itemPrice, quantity: 1 });
+            }
+            
+            updateCartUI();
+            document.getElementById('cartBtn').classList.remove('hidden');
+            showToast(itemName + " added!");
+        }
 
-            // If the cart is totally empty now, hide everything cleanly
+        // Adjust quantity from inside the cart
+        function updateQuantity(index, change) {
+            if (cart[index].quantity + change > 0) {
+                cart[index].quantity += change;
+                updateCartUI();
+            } else {
+                removeFromCart(index);
+            }
+        }
+
+        // Completely remove an item
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+
+            // Hide the cart completely if it becomes empty
             if (cart.length === 0) {
                 document.getElementById('cartModal').classList.add('hidden');
                 document.getElementById('cartBtn').classList.add('hidden');
@@ -468,20 +503,33 @@
         }
 
         function updateCartUI() {
-            document.getElementById('cartCount').innerText = cart.length;
+            // Update total items count for the floating button
+            let totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('cartCount').innerText = totalItems;
+            
             let cartItemsDiv = document.getElementById('cartItems');
             cartItemsDiv.innerHTML = ''; 
             let total = 0;
 
             cart.forEach((item, index) => {
-                total += item.price;
-                // Added a sleek red "X" trash button to each item row
+                let itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                
+                // Grouped UI with + and - controls and a remove button
                 cartItemsDiv.innerHTML += `
-                    <div class="flex justify-between items-center text-gray-700 py-2 border-b border-gray-100 last:border-0">
-                        <span class="font-medium flex-1">${item.name}</span>
-                        <div class="flex items-center space-x-4">
-                            <span class="font-bold text-gray-900">₹${item.price}</span>
-                            <button onclick="removeFromCart(${index})" class="text-red-500 hover:text-red-700 hover:bg-red-50 p-1 rounded transition" title="Remove Item">
+                    <div class="flex justify-between items-center text-gray-700 py-3 border-b border-gray-100 last:border-0">
+                        <div class="flex-1">
+                            <span class="font-bold text-gray-900 block">${item.name}</span>
+                            <span class="text-sm text-gray-500">₹${item.price} each</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="flex items-center bg-gray-100 rounded-lg">
+                                <button onclick="updateQuantity(${index}, -1)" class="px-3 py-1 text-gray-600 hover:text-orange-600 font-bold">-</button>
+                                <span class="font-bold w-6 text-center">${item.quantity}</span>
+                                <button onclick="updateQuantity(${index}, 1)" class="px-3 py-1 text-gray-600 hover:text-orange-600 font-bold">+</button>
+                            </div>
+                            <span class="font-bold text-orange-600 w-16 text-right">₹${itemTotal}</span>
+                            <button onclick="removeFromCart(${index})" class="text-red-500 hover:text-red-700 hover:bg-red-50 p-2 rounded transition" title="Remove Item">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
                             </button>
                         </div>
@@ -521,8 +569,9 @@
             let total = 0;
 
             cart.forEach(item => {
-                message += `▪️ 1x ${item.name} - ₹${item.price}\n`;
-                total += item.price;
+                // Include quantity in the WhatsApp message
+                message += `▪️ ${item.quantity}x ${item.name} - ₹${item.price * item.quantity}\n`;
+                total += item.price * item.quantity;
             });
 
             message += `\n*Total Amount: ₹${total}*`;
