@@ -196,7 +196,17 @@
         window.addEventListener('load', function() {
             const urlParams = new URLSearchParams(window.location.search);
             if (urlParams.get('order') === 'dinein') {
+                
+                // 1. Set the order type in the hidden cart
                 setOrderType('Dine-in'); 
+                
+                // 2. Automatically scroll past the Hero section straight to the Menu
+                document.getElementById('menu').scrollIntoView({ behavior: 'smooth' });
+                
+                // 3. Show a friendly alert so the customer knows it worked
+                setTimeout(() => {
+                    alert("🍽️ Welcome to Ambrosia! Dine-in mode is active. Please add items to your cart to order to your table.");
+                }, 800);
             }
         });
         
